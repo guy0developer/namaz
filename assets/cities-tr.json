@@ -1,0 +1,326 @@
+[
+  {
+    "name": "Adana",
+    "slug": "adana"
+  },
+  {
+    "name": "Adıyaman",
+    "slug": "adiyaman"
+  },
+  {
+    "name": "Afyonkarahisar",
+    "slug": "afyonkarahisar"
+  },
+  {
+    "name": "Ağrı",
+    "slug": "agri"
+  },
+  {
+    "name": "Amasya",
+    "slug": "amasya"
+  },
+  {
+    "name": "Ankara",
+    "slug": "ankara"
+  },
+  {
+    "name": "Antalya",
+    "slug": "antalya"
+  },
+  {
+    "name": "Artvin",
+    "slug": "artvin"
+  },
+  {
+    "name": "Aydın",
+    "slug": "aydin"
+  },
+  {
+    "name": "Balıkesir",
+    "slug": "balikesir"
+  },
+  {
+    "name": "Bilecik",
+    "slug": "bilecik"
+  },
+  {
+    "name": "Bingöl",
+    "slug": "bingol"
+  },
+  {
+    "name": "Bitlis",
+    "slug": "bitlis"
+  },
+  {
+    "name": "Bolu",
+    "slug": "bolu"
+  },
+  {
+    "name": "Burdur",
+    "slug": "burdur"
+  },
+  {
+    "name": "Bursa",
+    "slug": "bursa"
+  },
+  {
+    "name": "Çanakkale",
+    "slug": "canakkale"
+  },
+  {
+    "name": "Çankırı",
+    "slug": "cankiri"
+  },
+  {
+    "name": "Çorum",
+    "slug": "corum"
+  },
+  {
+    "name": "Denizli",
+    "slug": "denizli"
+  },
+  {
+    "name": "Diyarbakır",
+    "slug": "diyarbakir"
+  },
+  {
+    "name": "Edirne",
+    "slug": "edirne"
+  },
+  {
+    "name": "Elazığ",
+    "slug": "elazig"
+  },
+  {
+    "name": "Erzincan",
+    "slug": "erzincan"
+  },
+  {
+    "name": "Erzurum",
+    "slug": "erzurum"
+  },
+  {
+    "name": "Eskişehir",
+    "slug": "eskisehir"
+  },
+  {
+    "name": "Gaziantep",
+    "slug": "gaziantep"
+  },
+  {
+    "name": "Giresun",
+    "slug": "giresun"
+  },
+  {
+    "name": "Gümüşhane",
+    "slug": "gumushane"
+  },
+  {
+    "name": "Hakkâri",
+    "slug": "hakkari"
+  },
+  {
+    "name": "Hatay",
+    "slug": "hatay"
+  },
+  {
+    "name": "Isparta",
+    "slug": "isparta"
+  },
+  {
+    "name": "Mersin",
+    "slug": "mersin"
+  },
+  {
+    "name": "İstanbul",
+    "slug": "i-stanbul"
+  },
+  {
+    "name": "İzmir",
+    "slug": "i-zmir"
+  },
+  {
+    "name": "Kars",
+    "slug": "kars"
+  },
+  {
+    "name": "Kastamonu",
+    "slug": "kastamonu"
+  },
+  {
+    "name": "Kayseri",
+    "slug": "kayseri"
+  },
+  {
+    "name": "Kırklareli",
+    "slug": "kirklareli"
+  },
+  {
+    "name": "Kırşehir",
+    "slug": "kirsehir"
+  },
+  {
+    "name": "Kocaeli",
+    "slug": "kocaeli"
+  },
+  {
+    "name": "Konya",
+    "slug": "konya"
+  },
+  {
+    "name": "Kütahya",
+    "slug": "kutahya"
+  },
+  {
+    "name": "Malatya",
+    "slug": "malatya"
+  },
+  {
+    "name": "Manisa",
+    "slug": "manisa"
+  },
+  {
+    "name": "Kahramanmaraş",
+    "slug": "kahramanmaras"
+  },
+  {
+    "name": "Mardin",
+    "slug": "mardin"
+  },
+  {
+    "name": "Muğla",
+    "slug": "mugla"
+  },
+  {
+    "name": "Muş",
+    "slug": "mus"
+  },
+  {
+    "name": "Nevşehir",
+    "slug": "nevsehir"
+  },
+  {
+    "name": "Niğde",
+    "slug": "nigde"
+  },
+  {
+    "name": "Ordu",
+    "slug": "ordu"
+  },
+  {
+    "name": "Rize",
+    "slug": "rize"
+  },
+  {
+    "name": "Sakarya",
+    "slug": "sakarya"
+  },
+  {
+    "name": "Samsun",
+    "slug": "samsun"
+  },
+  {
+    "name": "Siirt",
+    "slug": "siirt"
+  },
+  {
+    "name": "Sinop",
+    "slug": "sinop"
+  },
+  {
+    "name": "Sivas",
+    "slug": "sivas"
+  },
+  {
+    "name": "Tekirdağ",
+    "slug": "tekirdag"
+  },
+  {
+    "name": "Tokat",
+    "slug": "tokat"
+  },
+  {
+    "name": "Trabzon",
+    "slug": "trabzon"
+  },
+  {
+    "name": "Tunceli",
+    "slug": "tunceli"
+  },
+  {
+    "name": "Şanlıurfa",
+    "slug": "sanliurfa"
+  },
+  {
+    "name": "Uşak",
+    "slug": "usak"
+  },
+  {
+    "name": "Van",
+    "slug": "van"
+  },
+  {
+    "name": "Yozgat",
+    "slug": "yozgat"
+  },
+  {
+    "name": "Zonguldak",
+    "slug": "zonguldak"
+  },
+  {
+    "name": "Aksaray",
+    "slug": "aksaray"
+  },
+  {
+    "name": "Bayburt",
+    "slug": "bayburt"
+  },
+  {
+    "name": "Karaman",
+    "slug": "karaman"
+  },
+  {
+    "name": "Kırıkkale",
+    "slug": "kirikkale"
+  },
+  {
+    "name": "Batman",
+    "slug": "batman"
+  },
+  {
+    "name": "Şırnak",
+    "slug": "sirnak"
+  },
+  {
+    "name": "Bartın",
+    "slug": "bartin"
+  },
+  {
+    "name": "Ardahan",
+    "slug": "ardahan"
+  },
+  {
+    "name": "Iğdır",
+    "slug": "igdir"
+  },
+  {
+    "name": "Yalova",
+    "slug": "yalova"
+  },
+  {
+    "name": "Karabük",
+    "slug": "karabuk"
+  },
+  {
+    "name": "Kilis",
+    "slug": "kilis"
+  },
+  {
+    "name": "Osmaniye",
+    "slug": "osmaniye"
+  },
+  {
+    "name": "Düzce",
+    "slug": "duzce"
+  }
+]
