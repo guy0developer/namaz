@@ -9,9 +9,7 @@ export async function onRequestGet({ request }) {
     });
   }
   try {
-    // Resolve Diyanet method id dynamically (cached via Cloudflare CDN)
-    const methodsReq = new Request("https://api.aladhan.com/v1/methods", { cf: { cacheTtl: 86400 } });
-    const methodsRes = await fetch(methodsReq);
+    const methodsRes = await fetch("https://api.aladhan.com/v1/methods", { cf: { cacheTtl: 86400 } });
     const methodsJson = await methodsRes.json();
     let diyanetId = null;
     if (methodsJson && methodsJson.data) {
@@ -20,29 +18,25 @@ export async function onRequestGet({ request }) {
         if (name.includes("diyanet")) { diyanetId = id; break; }
       }
     }
-    // Fallback to a commonly-used id if not resolved
     if (!diyanetId) diyanetId = 13;
 
-    // Build date path for the endpoint as DD-MM-YYYY (API expects this format in the path)
     const d = date ? new Date(date) : new Date();
-    const dd = String(d.getDate()).padStart(2, "0");
-    const mm = String(d.getMonth()+1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2,"0");
+    const mm = String(d.getMonth()+1).padStart(2,"0");
     const yyyy = d.getFullYear();
     const datePath = `${dd}-${mm}-${yyyy}`;
 
-    // Query AlAdhan
     const apiUrl = new URL(`https://api.aladhan.com/v1/timingsByCity/${datePath}`);
     apiUrl.searchParams.set("city", city);
     apiUrl.searchParams.set("country", "Turkey");
     apiUrl.searchParams.set("method", diyanetId);
-    apiUrl.searchParams.set("school", "1"); // Shafi
+    apiUrl.searchParams.set("school", "1");
     apiUrl.searchParams.set("timezonestring", "Europe/Istanbul");
 
-    const res = await fetch(new Request(apiUrl, { cf: { cacheTtl: 1800 } }));
+    const res = await fetch(apiUrl, { cf: { cacheTtl: 1800 } });
     const j = await res.json();
     if (!res.ok || j.code !== 200) throw new Error(`Upstream error: ${res.status} ${j.status}`);
 
-    // Shape minimal response
     const out = {
       city,
       date: j.data.date,

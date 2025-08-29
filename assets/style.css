@@ -63,10 +63,8 @@ h1{margin:0;font-size:26px;letter-spacing:.2px}
 }
 .btn:hover{filter:brightness(1.03)}
 
-.times{margin-top:16px}
+.times{margin-top:16px; position:relative}
 .times__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.date{font-weight:600}
-.date--muted{color:var(--muted);font-weight:500}
 .next{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
 .next__label{font-size:11px;color:var(--muted)}
 .next__value{font-size:18px;font-weight:700}
@@ -82,7 +80,11 @@ h1{margin:0;font-size:26px;letter-spacing:.2px}
 .tile .k{color:var(--muted);font-size:12px}
 .tile .v{font-weight:700;font-size:16px}
 .tile.active{border-color: rgba(20,184,166,.5); box-shadow: 0 0 0 3px rgba(20,184,166,.2) inset}
-.note{margin-top:10px;color:var(--muted);font-size:12px}
+
+.times__meta{
+  position:absolute; right:12px; bottom:12px;
+  color:var(--muted); font-size:12px; opacity:.9;
+}
 .footer{display:flex;justify-content:space-between;align-items:center;margin:18px 0 60px}
 .muted{color:var(--muted)}
 
@@ -90,4 +92,5 @@ h1{margin:0;font-size:26px;letter-spacing:.2px}
   .grid{grid-template-columns: repeat(2,1fr)}
   .hero{height:200px}
   .brand h1{font-size:22px}
+  .times__meta{right:10px; bottom:10px; font-size:11px}
 }

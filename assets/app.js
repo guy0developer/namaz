@@ -17,10 +17,9 @@ const NAMES_TR = {
   Imsak:"İmsak", Fajr:"Sabah", Sunrise:"Güneş", Dhuhr:"Öğle", Asr:"İkindi", Maghrib:"Akşam", Isha:"Yatsı"
 };
 
-const order = ["Imsak","Sunrise","Dhuhr","Asr","Maghrib","Isha"]; // Fajr omitted in TR (İmsak used).
+const order = ["Imsak","Sunrise","Dhuhr","Asr","Maghrib","Isha"];
 
 function parseTimeHHMMToDate(hhmm) {
-  // Expect "HH:MM" in 24h, create Date today with that time
   const [h,m] = hhmm.split(":").map(x => parseInt(x,10));
   const d = new Date();
   d.setHours(h, m, 0, 0);
@@ -38,26 +37,24 @@ async function load(){
   const sel = document.getElementById("city");
   const title = document.getElementById("cityTitle");
   const grid = document.getElementById("grid");
-  const greg = document.getElementById("greg");
-  const hijri = document.getElementById("hijri");
   const nextPrayerEl = document.getElementById("nextPrayer");
   const countdownEl = document.getElementById("countdown");
+  const metaEl = document.getElementById("meta");
 
-  // Load city data
+  // Load city list
   const cities = await fetch(citiesUrl).then(r=>r.json());
   sel.innerHTML = cities.map(c => `<option value="${c.name}">${c.name}</option>`).join("");
 
-  // Determine current city from URL slug or localStorage
+  // Determine current city from path or storage (no auto-save; user clicks 'Kaydet')
   const slugFromPath = location.pathname.replace(/^\/|\/$/g,"");
   let currentCity = cities.find(x => x.slug === slugFromPath)?.name || localStorage.getItem(CITY_KEY) || "İstanbul";
   sel.value = currentCity;
   title.textContent = currentCity;
 
-  // Update URL (SEO-friendly)
+  // If path doesn't match selection, normalize URL but don't save storage until 'Kaydet'
   const currentSlug = cities.find(x => x.name === currentCity)?.slug || trSlug(currentCity);
   if (slugFromPath !== currentSlug) history.replaceState({}, "", `/${currentSlug}/`);
 
-  // Bind save
   document.getElementById("saveCity").onclick = () => {
     const name = sel.value;
     localStorage.setItem(CITY_KEY, name);
@@ -77,8 +74,15 @@ async function load(){
       const url = `/api/namaz?city=${encodeURIComponent(cityName)}&date=${dateStr}`;
       const data = await fetch(url,{headers:{'accept':'application/json'}}).then(r=>r.json());
 
-      greg.textContent = `${data.date.gregorian.date} · ${data.meta.timezone}`;
-      hijri.textContent = `${data.date.hijri.date} ${data.date.hijri.month.ar} ${data.date.hijri.year}`;
+      // Meta zone & date
+      const tz = data.meta.timezone;
+      const dateLabel = data.date.gregorian.date;
+      function updateMeta(){
+        const now = new Date();
+        const hh = fmt(now.getHours()); const mi = fmt(now.getMinutes()); const ss = fmt(now.getSeconds());
+        metaEl.textContent = `Şu an ${hh}:${mi}:${ss} • ${tz} • ${dateLabel}`;
+      }
+      updateMeta();
 
       // Build tiles
       grid.innerHTML = "";
@@ -101,12 +105,10 @@ async function load(){
           if (t > now && !nextAt){ nextName = k; nextAt = t; }
         }
         if (!nextAt){
-          // After Isha -> next is Imsak of tomorrow; show until midnight
           nextName = "İmsak";
-          const t = new Date(); t.setDate(t.getDate()+1); t.setHours(0,0,0,0); // midnight as fallback
+          const t = new Date(); t.setDate(t.getDate()+1); t.setHours(0,0,0,0);
           nextAt = t;
         }
-        // Highlight
         for (const node of grid.children) node.classList.remove("active");
         if (active){
           const elAct = [...grid.children].find(n => n.dataset.key === active);
@@ -116,7 +118,7 @@ async function load(){
         countdownEl.textContent = msToHMS(nextAt - now);
       }
       computeNext();
-      setInterval(computeNext, 1000);
+      setInterval(() => { computeNext(); updateMeta(); }, 1000);
     }catch(e){
       grid.innerHTML = `<div class="tile"><div class="k">Hata</div><div class="v">Bağlantı sağlanamadı.</div></div>`;
       console.error(e);

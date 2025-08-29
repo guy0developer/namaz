@@ -11,9 +11,9 @@
   <meta property="og:description" content="Türkiye'de 81 il için günlük namaz saatleri." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="tr_TR" />
-  <link rel="preload" href="./assets/style.css" as="style">
-  <link rel="stylesheet" href="./assets/style.css" />
-  <script defer src="./assets/app.js"></script>
+  <link rel="preload" href="/assets/style.css" as="style">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script defer src="/assets/app.js"></script>
   <script id="ld" type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"WebPage",
@@ -44,15 +44,11 @@
       <label for="city">Şehir</label>
       <select id="city" class="select"></select>
       <button id="saveCity" class="btn">Kaydet</button>
-      <small class="muted">Seçimin lokal olarak saklanır.</small>
     </section>
 
     <section class="card times">
       <div class="times__header">
-        <div>
-          <div class="date" id="greg"></div>
-          <div class="date date--muted" id="hijri"></div>
-        </div>
+        <div></div>
         <div class="next">
           <div class="next__label">Sıradaki</div>
           <div class="next__value" id="nextPrayer">—</div>
@@ -62,14 +58,10 @@
       <div class="grid" id="grid">
         <!-- Filled by JS -->
       </div>
-      <div class="note">Kaynak: AlAdhan API (Diyanet yöntemi)</div>
+      <div class="times__meta" id="meta"></div>
     </section>
 
     <footer class="footer">
-      <div class="links">
-        <a href="/" class="muted">Anasayfa</a> · 
-        <a href="https://aladhan.com/prayer-times-api" target="_blank" rel="noopener" class="muted">API</a>
-      </div>
       <div class="dev muted">developed by eylmz</div>
     </footer>
   </main>
